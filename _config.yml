@@ -11,7 +11,7 @@ permalink: /:slug
 
 favicon: "./logo.png" # relative path to site's favicon
 
-remote_theme: chaz6chez/chaz6chez
+remote_theme: abhinavs/moonwalk
 
 theme_config:
   appearance: "auto" # can be "light", "dark" or "auto"
