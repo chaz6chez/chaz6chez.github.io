@@ -16,7 +16,7 @@ remote_theme: abhinavs/moonwalk
 theme_config:
   appearance: "auto" # can be "light", "dark" or "auto"
   appearance_toggle: true # if appearance can be switched by user
-  back_home_text: "🏠Home" # customize text for homepage link in post layout
+  back_home_text: "🏠 Home ->" # customize text for homepage link in post layout
   date_format: "%Y-%m-%d" # customize how date is formatted
   show_description: true # show blog description
   show_navbar: true # show horizontal navbar
@@ -29,7 +29,7 @@ theme_config:
   show_misc_list: true # show generic vertical list for misc details, add _data/home.yml
   # options for "home" page
   home:
-    title_projects: Portfolio
+    title_projects: Project
     title_misc_list: Details
     title_blog: Blog
 

@@ -42,7 +42,7 @@ misc_entries:
   - title: and you can add data in _data/home.yml
     url: false
 
-  - title: Blog posts
+  - title: Blog
     post_list: true
     url: false
 

@@ -18,7 +18,7 @@ author: Chaz6chez
 
 - 创建一个Structure
 
-````injectablephp
+````PHP
 namespace YoursNamespace;
 use Structure\Struct;
 class User extends Struct {
@@ -48,7 +48,7 @@ class User extends Struct {
 
 - 使用
 
-````injectablephp
+````PHP
     $struct = \YoursNamespace\User::factory();
     $struct->create([
         'id' => 12,
@@ -93,7 +93,7 @@ class User extends Struct {
 - 继承 Structure\Struct 及实现结构体
 - public属性接参
 
-````injectablephp
+````PHP
 namespace Example;
 
 use Structure\Struct;
@@ -107,7 +107,7 @@ class User extends Struct{
 
 - 对要操作和转化的public属性进行注释
 
-````injectablephp
+````PHP
 
     /**
      * @rule string,min:10,max:20|name format error:1001 
@@ -120,7 +120,7 @@ class User extends Struct{
     - b区：场景区
     - c区：验证区
     - d区：内容信息
-```injectablephp
+```PHP
 /**
  *  a区   b区        c区              d区
  * @标签 [场景]   验证方式   | 错误信息     : 错误码
@@ -140,7 +140,7 @@ class User extends Struct{
   通过getError() 可以获得错误信息**
 
 |标签名|方式|类型|说明|
-| :---: | :---:|:-----:| :--- |
+|:---:|:--------------:|:----------------:|:----------------------:|
 | <a href="#@default">@default</a> | Structure\Handler、func、method | 转换 | func与method是将返回值默认赋予该标签 |
 | <a href="#@required">@required</a>| true |验证| 判断是否为必要值 |
 | <a href="#@rule">@rule</a> | Structure\Handler、func、method |验证| 以func与method的bool返回类型判断验证 |
@@ -154,7 +154,7 @@ class User extends Struct{
 - 将该属性标记默认模式
 - 当该属性值为null且具备@default标签时生效
 
-````injectablephp
+````PHP
     /**
      * @default string:abc
      * @default int:123
@@ -171,7 +171,7 @@ class User extends Struct{
     - **method:className,methodName 必须是静态方法**
     - **方法执行过程中抛出的任何异常都会被忽略，并以默认Null赋值**
 
-````injectablephp
+````PHP
     /**
      * @default func:is_array              会找到is_array函数
      * @default method:_set                会定位当前类的_set方法
@@ -186,7 +186,7 @@ class User extends Struct{
 - **@default仅在output()输出时生效，若要直接使用类属性获取@default赋值，请使用以下方法：**
 - **但不建议频繁使用，会多执行一次object clone操作**
 
-```injectablephp
+```PHP
     // 以name的@default标签为string:John举例
     /**
      * @default string:John
@@ -194,7 +194,7 @@ class User extends Struct{
     public $name;
  ```
 
-```injectablephp 
+```PHP 
     $struct = new Struct();
     // @default无法生效，值为null
     $struct->name;
@@ -205,7 +205,7 @@ class User extends Struct{
 
 ### <a id="@required">@required</a>
 
-````injectablephp
+````PHP
     /**
      * @required true|name cannot empty
      */
@@ -216,7 +216,7 @@ class User extends Struct{
 
 - 通过预置Handler进行验证
 
-````injectablephp
+````PHP
     /**
      * @rule string,min:10,max:20|name format error
      * @rule int,min:10,max:20|name format error
@@ -236,7 +236,7 @@ class User extends Struct{
     - **method:className,methodName 必须是静态方法**
     - **方法执行过程中任何异常会转化成StructureException抛出**
 
-````injectablephp
+````PHP
     /**
      * @rule func:_set                  会找到_set函数
      * @rule method:_set                会定位当前类的_set方法
@@ -259,7 +259,7 @@ function _set($value) : bool
 ### <a id="@ghost">@ghost</a>
 - <a href="#输出">output()</a> 不会输出该标签
 
-````injectablephp
+````PHP
     // @ghost true
     $user->id = 'id';
 
@@ -282,7 +282,7 @@ function _set($value) : bool
 - 将该属性标记钥匙字段
 - 通过 <a href="#过滤">filter()</a>-><a href="#输出">output()</a> 可以做到仅输出钥匙字段
 
-````injectablephp
+````PHP
     // @key true
     $user->id = 'id';
 
@@ -306,7 +306,7 @@ function _set($value) : bool
 ### <a id="@operator">@operator</a>
 
 #### 1. 识别[medoo语法-where](https://medoo.in/api/where) 并转换
-````injectablephp
+````PHP
     /**
      * @operator true 
      */ 
@@ -315,7 +315,7 @@ function _set($value) : bool
 
 通过 <a href="#转换">transfer()</a>-><a href="#输出">output()</a> 可以做到转换输出
 
-````injectablephp
+````PHP
     // @operator true
     $user->id = 'abc[>]';
     $user->transfer(STRUCT_TRANSFER_OPERATOR)->output();
@@ -335,7 +335,7 @@ function _set($value) : bool
     2.2以上版本完善了该标签下的类型转换
     2.2以下版本中不会对类型转换
 ##### 2.2以下版本：
-````injectablephp
+````PHP
     // @operator true
     $user->id = '123[>]';
     $user->transfer(STRUCT_TRANSFER_OPERATOR)->output();
@@ -356,7 +356,7 @@ function _set($value) : bool
     - 整型内容字符串转换成整型
     - 小数字符串转换成浮点型
 
-````injectablephp
+````PHP
     // @operator true
     $user->id = '123[>]';
     $user->transfer(STRUCT_TRANSFER_OPERATOR)->output();
@@ -391,7 +391,7 @@ function _set($value) : bool
 - 可以使用强制转换标签
 
 
-````injectablephp
+````PHP
 
 # String :
 
@@ -475,7 +475,7 @@ function _set($value) : bool
 - **method:className,methodName 必须是静态方法**
 - **方法执行过程中任何异常会转化成StructureException抛出**
 
-````injectablephp
+````PHP
 
     /**
      * @operator func:_add                  相当于_add($name)
@@ -490,7 +490,7 @@ function _set($value) : bool
 - 将该属性标记映射处理
 - 通过 <a href="#转换">transfer()</a>-><a href="#输出">output()</a> 可以做到转换输出
 
-````injectablephp
+````PHP
     // @mapping key
     $user->id = 123;
 
@@ -515,7 +515,7 @@ function _set($value) : bool
 
 - 实例化
 
-````injectablephp
+````PHP
     $user = User::factory([
         'id' => 1,
         'name' => 'john'
@@ -528,7 +528,7 @@ function _set($value) : bool
     - 使用属性赋值输入数据
     - **使用create可以保存<a href="#获取原始数据">原始数据</a>，使用属性赋值则不会保留原始数据**
 
-````injectablephp
+````PHP
     // 1.使用create输入数据
     $user->create([
         'id' => 1,
@@ -536,7 +536,7 @@ function _set($value) : bool
     ]); // return $this
 ````
 
-````injectablephp
+````PHP
     // 2.使用属性赋值输入数据
     $user->id = 1;
     $user->name = 'john';
@@ -546,13 +546,13 @@ function _set($value) : bool
 
 - <a id="获取原始数据">获取原始数据</a>
 
-````injectablephp
+````PHP
     $user->getRaw(); // return array
 ````
 
 - 设置场景
 
-````injectablephp
+````PHP
     $user->scene('check'); // return $this
 ````
 
@@ -561,7 +561,7 @@ function _set($value) : bool
     - STRUCT_TRANSFER_MAPPING
     - STRUCT_TRANSFER_OPERATOR
 
-````injectablephp
+````PHP
     $user->transfer(STRUCT_TRANSFER_MAPPING); // return $this
 
     // STRUCT_TRANSFER_MAPPING
@@ -583,7 +583,7 @@ function _set($value) : bool
     - STRUCT_FILTER_OPERATOR
     - STRUCT_FILTER_OPERATOR_REVERSE
 
-````injectablephp
+````PHP
     $user->filter(STRUCT_FILTER_NULL); // return $this
 
     // STRUCT_FILTER_NULL
@@ -603,7 +603,7 @@ function _set($value) : bool
 
 - <a id="验证">验证</a>
 
-````injectablephp
+````PHP
     $user->validate(); // return bool
     $user->hasError(); // return bool
 
@@ -615,7 +615,7 @@ function _set($value) : bool
 
     - 需要在<a href="#验证">验证</a>执行后才能获取错误信息
 
-````injectablephp
+````PHP
     $user->getError(); // return Structure\Error
 
     $user->getError()->getMessage();  // 错误信息 string
@@ -632,7 +632,7 @@ function _set($value) : bool
     - 全量输出会进行<a href="#转换">转换</a>和default赋值
     - 全量输出不进行<a href="#过滤">过滤</a>
 
-````injectablephp
+````PHP
     $user->output(); // return array
 
     $user->output(true); // 全量输出
@@ -640,7 +640,7 @@ function _set($value) : bool
 
 - 清洗
 
-````injectablephp
+````PHP
     $user->clean(); // 默认不装载raw数据
 
     $user->clean(true); // 装载raw数据
@@ -650,13 +650,13 @@ function _set($value) : bool
 
 - Handler 接受自定义注册
 
-````injectablephp
+````PHP
     \Structure\Handler::register();
 ````
 
 - StructureException
 
-````injectablephp
+````PHP
     try {
         // ...                          
     }catch (\Structure\Exceptions\StructureException $exception){
