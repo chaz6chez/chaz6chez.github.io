@@ -7,6 +7,8 @@ keyword: chaz6chez, c6c, blog, chaz6chez的博客, Golang, PHP, Python
 description: > # description of the site (multiple lines allowed)
   I sot u'r soul free.
 
+  努力分享一下日常的生活及工作的心得。
+
 permalink: /:slug
 
 favicon: "./logo.png" # relative path to site's favicon
