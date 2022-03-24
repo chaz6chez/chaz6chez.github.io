@@ -13,7 +13,7 @@ project_entries:
     url: https://github.com/chaz6chez/structure
     desc: 一个基于PHP数组、反射机制的数据结构，可用于参数验证、过滤、转换
 
-  - title: chaz6chez/casual-database
+  - title: casual/database
     url: https://github.com/chaz6chez/casual-database
     desc: A Long-living MySQL connection for daemon base on PHP
 
