@@ -9,31 +9,18 @@ navbar_entries:
     url: https://www.chaz6chez.cn
 
 project_entries:
-  - title: Project 1
-    url: overview-post
-    desc: This is an example project, configured in _data/home.yml
+  - title: chaz6chez/structure
+    url: chaz6chez-structure
+    desc: 一个基于PHP数组、反射机制的数据结构，可用于参数验证、过滤、转换
 
-  - title: Project 2
-    url: overview-post
-    desc: Projects are shown in card layout
+  - title: walkor/rabbitmq
+    url: https://github.com/walkor/rabbitmq
+    desc: 基于workerman的rabbitMQ客户端，可实现同步/异步的生产者/消费者
 
-  - title: Project 3
-    url: overview-post
-    desc: You can control visibility from _config.yml file
-
-  - title: Project 4
-    url: overview-post
-    desc: This project uses highlight markup, configured in _data/home.yml
-    highlight: WIP
-
-  - title: Project 5
-    url: overview-post
-    desc: Moonwalk also has horizontal list (used in header and footer)
-    highlight: WIP
-
-  - title: Project 6
-    url: overview-post
-    desc: It also has a scalable vertical list (in case you need it)
+  - title: Octopus Helper
+    url: octopus-helper
+    desc: Golang开发的基于event-loop的高性能调度服务
+    highlight: plan
 
 footer_entries:
   - title: chaz6chez's homepage
