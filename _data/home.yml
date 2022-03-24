@@ -41,13 +41,13 @@ misc_entries:
     url: false
     entries:
       - title: PHP、Golang、Python
-      url: false
+        url: false
 
       - title: ETL、机器学习、Web
-      url: false
+        url: false
 
       - title: 音乐、林道竞速、无人机飞行
-      url: false
+        url: false
 
   - title: Blog List
     post_list: true
