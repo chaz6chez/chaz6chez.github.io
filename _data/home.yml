@@ -42,8 +42,8 @@ footer_entries:
   - title: github
     url: https://github.com/chaz6chez
 
-  - title: feed
-    url: feed.xml
+  - title: music
+    url: https://music.163.com/#/artist?id=34679151
 
 misc_entries:
   - title: this is an example vertical list
