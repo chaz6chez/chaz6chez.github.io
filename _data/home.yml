@@ -22,7 +22,7 @@ project_entries:
     desc: 基于workerman的rabbitMQ客户端，可实现同步/异步的生产者/消费者
 
   - title: Octopus Helper
-    url: 计划-Oh项目计划
+    url: 计划-oh项目计划
     desc: 基于Golang开发的event-loop高性能调度服务
     highlight: Plan
 
