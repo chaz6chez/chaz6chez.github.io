@@ -10,17 +10,21 @@ navbar_entries:
 
 project_entries:
   - title: chaz6chez/structure
-    url: chaz6chez-structure
+    url: https://github.com/chaz6chez/structure
     desc: 一个基于PHP数组、反射机制的数据结构，可用于参数验证、过滤、转换
+
+  - title: chaz6chez/casual-database
+    url: https://github.com/chaz6chez/casual-database
+    desc: A Long-living MySQL connection for daemon base on PHP
 
   - title: walkor/rabbitmq
     url: https://github.com/walkor/rabbitmq
     desc: 基于workerman的rabbitMQ客户端，可实现同步/异步的生产者/消费者
 
   - title: Octopus Helper
-    url: octopus-helper
-    desc: Golang开发的基于event-loop的高性能调度服务
-    highlight: plan
+    url: Oh项目计划
+    desc: 基于Golang开发的event-loop高性能调度服务
+    highlight: Plan
 
 footer_entries:
   - title: chaz6chez's homepage
@@ -33,35 +37,29 @@ footer_entries:
     url: https://music.163.com/#/artist?id=34679151
 
 misc_entries:
-  - title: this is an example vertical list
+  - title: 感兴趣的技术内容和方向以及兴趣爱好
     url: false
+    entries:
+      - title: PHP、Golang、Python
+      url: false
 
-  - title: you can show or hide using a boolean flag in _config.yml
-    url: false
+      - title: ETL、机器学习、Web
+      url: false
 
-  - title: and you can add data in _data/home.yml
-    url: false
+      - title: 音乐、林道竞速、无人机飞行
+      url: false
 
-  - title: Blog
+  - title: Blog List
     post_list: true
     url: false
 
-  - title: moonwalk on the Internet
+  - title: Chaz6chez
     url: false
     entries:
-      - title: on Github
-        url: https://github.com/abhinavs/moonwalk
+      - title: Homepage
+        url: https://www.chaz6chez.cn
 
-      - title: originally built for abhinav's homepage
-        url: https://www.abhinav.co
-
-      - title: this list is scalable and can be nested
-        url: false
-        entries:
-          - title: this is nested inside a nested list
-            url: false
-
-          - title: it is easy to use, see _data/home.yml to see how to configure it.
-            url: false
+      - title: Github
+          url: https://github.com/chaz6chez
 
 
