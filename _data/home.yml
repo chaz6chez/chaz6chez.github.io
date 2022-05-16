@@ -17,13 +17,17 @@ project_entries:
     url: https://github.com/chaz6chez/casual-database
     desc: A Long-living MySQL connection for daemon base on PHP
 
+  - title: workbunny/webman-nacos
+    url: https://github.com/workbunny/webman-nacos
+    desc: Webman的Nacos客户端插件包
+
   - title: walkor/rabbitmq
     url: https://github.com/walkor/rabbitmq
-    desc: 基于workerman的rabbitMQ客户端，可实现同步/异步的生产者/消费者
+    desc: Workerman官方RabbitMQ异步客户端组件
 
-  - title: Octopus Helper
-    url: 计划-oh项目计划
-    desc: 基于Golang开发的event-loop高性能调度服务
+  - title: Workbunny
+    url: 计划-Workbunny项目计划
+    desc: 基于Golang开发的轻量级高性能任务调度服务
     highlight: Plan
 
 footer_entries:
