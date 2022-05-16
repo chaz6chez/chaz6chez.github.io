@@ -17,7 +17,7 @@ project_entries:
     url: https://github.com/chaz6chez/casual-database
     desc: A Long-living MySQL connection for daemon base on PHP
 
-  - title: workbunny/webman-nacos
+  - title: workbunny/nacos
     url: https://github.com/workbunny/webman-nacos
     desc: Webman的Nacos客户端插件包
 
@@ -26,7 +26,7 @@ project_entries:
     desc: Workerman官方RabbitMQ异步客户端组件
 
   - title: Workbunny
-    url: 计划-Workbunny项目计划
+    url: 计划-workbunny项目计划
     desc: 基于Golang开发的轻量级高性能任务调度服务
     highlight: Plan
 
