@@ -38,12 +38,14 @@ author: Chaz6chez
   - [go-Fiber](https://github.com/gofiber/fiber)
   - 基于fast-http自己实现 workbunny/express
 - cli库
-  - [cobra](https://github.com/spf13/cobra)
   - [urfave/cli](https://github.com/urfave/cli)
-- 数据存储
-  - 基于文件与内存利用链表等数据结构自己实现数据存储 workbunny/room
+  - [cobra](https://github.com/spf13/cobra)
+- 数据持久化
+  - 基于文件与链表等数据结构自己实现数据持久化存储 workbunny/room
 - 调度器
   - 自己实现调度库 workbunny/scheduler
+- Raft集群
+  - [dragonboat库](https://github.com/lni/dragonboat)
 
 ---
     更新于 2022-05-16 11:45
