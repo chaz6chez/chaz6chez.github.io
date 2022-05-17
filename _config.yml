@@ -11,7 +11,7 @@ description: > # description of the site (multiple lines allowed)
 
 permalink: /:slug
 
-favicon: "/favicon.ico" # relative path to site's favicon
+favicon: "./../images/favicon.ico" # relative path to site's favicon
 
 remote_theme: abhinavs/moonwalk
 
@@ -41,7 +41,7 @@ soopr:
 highlighter: rouge
 
 sass:
-  style: :compressed
+  style: compressed
 
 plugins:
   - jekyll-feed
