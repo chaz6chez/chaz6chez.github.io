@@ -11,11 +11,12 @@ tags:
  - 服务
 categories:
  - Chaz6chez
+
 ---
 
-# Workbunny/workbunny
+# Workbunny
 
-    一个基于golang开发的轻量级高性能任务调度服务
+> 一个基于golang开发的轻量级高性能任务调度服务
 
 - 轻量
 - 易用
@@ -57,4 +58,4 @@ categories:
 - Raft集群
   - [dragonboat库](https://github.com/lni/dragonboat)
 
-    更新于 2022-05-16 11:45
+> 更新于 2022-05-16 11:45
