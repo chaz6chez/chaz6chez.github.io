@@ -10,11 +10,11 @@
         </h1>
 
         <div class="icons-home">
-            <a aria-label="Send email" title="Send me a e-mail" href="mailto:{{site.email}}">
+            <a aria-label="Send email" title="发送邮件" href="mailto:{{site.email}}">
                 <svg class="icon icon-email"><use xlink:href="#icon-email"></use></svg>
             </a>
 
-            <a aria-label="My Github" title="Show my projects" target="_blank" href="https://github.com/{{site.github_username}}">
+            <a aria-label="My Github" title="我的GitHub" target="_blank" href="https://github.com/{{site.github_username}}">
                 <svg class="icon icon-github-alt"><use xlink:href="#icon-github-alt"></use></svg>
             </a>
 
@@ -22,16 +22,16 @@
                 <svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg>
             </a>
 
-            <a aria-label="Use the RSS to get updated" title="Register for my RSS" target="_blank" href="{{ "/feed.xml" | prepend: site.baseurl }}">
+            <a aria-label="Use the RSS to get updated" title="RSS" target="_blank" href="{{ "/feed.xml" | prepend: site.baseurl }}">
                 <svg class="icon icon-rss"><use xlink:href="#icon-rss"></use></svg>
             </a>
         </div>
 
         <ul class="recent">
             <p>博客:</p>
-             {% for post in site.posts limit:3%}
+             {% for post in site.posts limit:4%}
                 <li>
-                    <a title="Will take a my recent post" href="{{ post.url | prepend: site.baseurl }}">
+                    <a title="{{ post.description }}" href="{{ post.url | prepend: site.baseurl }}">
                         <h2 class="post-title" itemprop="name">{{ post.title }}</h2>
                     </a>
                 </li>
@@ -40,9 +40,9 @@
 
         <ul class="recent">
             <p>我的项目:</p>
-             {% for project in site.projects limit:3%}
+             {% for project in site.projects limit:4%}
                 <li>
-                    <a title="{{project.desc}}}" href="{{ project.url}}">
+                    <a title="{{ project.desc }}}" href="{{ project.url }}">
                         <h2 class="post-title" itemprop="name">{{ project.name }}</h2>
                     </a>
                 </li>

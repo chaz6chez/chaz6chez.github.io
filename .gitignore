@@ -1,4 +1,6 @@
 _site
 .sass-cache
+.idea
+.vscode
 node_modules
 _drafts
