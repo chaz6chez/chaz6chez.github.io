@@ -31,7 +31,13 @@
             {% for project in site.projects limit:3%}
                 <li>
                     <a title="{{ project.desc }}}" href="{{ project.url }}">
-                        <h2 class="post-title" itemprop="name">{{ project.title }}</h2>
+                        {% if project.highlight %}
+                            <h2 class="post-title" itemprop="name">{{ project.title }}
+                                <mark style="background-color: darkorange"> {{ project.highlight }} </mark>
+                            </h2>
+                        {% else %}
+                            <h2 class="post-title" itemprop="name">{{ project.title }}</h2>
+                        {% endif %}
                     </a>
                 </li>
             {% endfor %}
