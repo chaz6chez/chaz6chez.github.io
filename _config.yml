@@ -29,19 +29,19 @@ links:
   section_1:
     - title: 首页
       url: /
-      key_trigger: 🏠
+      key_trigger: 1
     - title: 博客
       url: /posts
-      key_trigger: 📖
+      key_trigger: 2
     - title: 归档
       url: /series
-      key_trigger: 🗄️
+      key_trigger: 3
     - title: 标签
       url: /tags
-      key_trigger: 🏷️
+      key_trigger: 4
     - title: 关于我
       url: /about
-      key_trigger: 😂
+      key_trigger: 5
   section_2:
     - title: Github
       url: https://github.com/chaz6chez
