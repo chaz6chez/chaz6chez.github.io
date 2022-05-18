@@ -9,6 +9,7 @@ tags:
   - 组件
 categories:
   - Chaz6chez
+
 ---
 
 # [Structure](https://github.com/chaz6chez/structure)
@@ -137,7 +138,6 @@ class User extends Struct{
  */                       
 ````
 
-***
 ## <a id="标签区">标签区</a>：
 
 - **转换类的标签配合 filter()在output() 方法内生效，
@@ -147,16 +147,16 @@ class User extends Struct{
 - **验证类的标签在 validate() 中生效返回布尔值，
   通过getError() 可以获得错误信息**
 
-|标签名|方式|类型|说明|
-|:---:|:--------------:|:----------------:|:----------------------:|
-| <a href="#@default">@default</a> | Structure\Handler、func、method | 转换 | func与method是将返回值默认赋予该标签 |
-| <a href="#@required">@required</a>| true |验证| 判断是否为必要值 |
-| <a href="#@rule">@rule</a> | Structure\Handler、func、method |验证| 以func与method的bool返回类型判断验证 |
-| <a href="#@skip">@skip</a> | 无 |验证| 跳过验证 |
-| <a href="#@ghost">@ghost</a>| 无 |转换| 跳过输出 |
-| <a href="#@key">@key</a>| 无 |转换| 标记钥匙属性|
-| <a href="#@mapping">@mapping</a>| 映射键名 |转换| 映射键转换 |
-| <a href="#@operator">@operator</a>| true、func、method |转换| 键值特殊转换 |
+>| 标签名 |方式|类型|说明|
+>|:----:|:---:|:---:|:----:|
+>| <a href="#@default">@default</a>   | Structure\Handler、func、method | 转换 | func与method是将返回值默认赋予该标签 |
+>| <a href="#@required">@required</a> | true |验证| 判断是否为必要值 |
+>| <a href="#@rule">@rule</a>         | Structure\Handler、func、method |验证| 以func与method的bool返回类型判断验证 |
+>| <a href="#@skip">@skip</a>         | 无 |验证| 跳过验证 |
+>| <a href="#@ghost">@ghost</a>       | 无 |转换| 跳过输出 |
+>| <a href="#@key">@key</a>           | 无 |转换| 标记钥匙属性|
+>| <a href="#@mapping">@mapping</a>   | 映射键名 |转换| 映射键转换 |
+>| <a href="#@operator">@operator</a> | true、func、method |转换| 键值特殊转换 |
 
 ### <a id="@default">@default</a>
 - 将该属性标记默认模式
@@ -473,11 +473,7 @@ function _set($value) : bool
     [
         'id' => true
     ];
-````  
-
-
-
-
+````
 
 #### 2.使用func、method进行转换
 - **method:className,methodName 必须是静态方法**
