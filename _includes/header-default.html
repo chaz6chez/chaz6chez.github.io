@@ -31,7 +31,7 @@
             {% for project in site.projects limit:3%}
                 <li>
                     <a title="{{ project.desc }}}" href="{{ project.url }}">
-                        <h2 class="post-title" itemprop="name">{{ project.name }}</h2>
+                        <h2 class="post-title" itemprop="name">{{ project.title }}</h2>
                     </a>
                 </li>
             {% endfor %}
@@ -42,7 +42,7 @@
              {% for post in site.posts limit:3%}
                 <li>
                     <a title="{{ post.description }}" href="{{ post.url | prepend: site.baseurl }}">
-                        <h2 class="post-title" itemprop="name">{{ post.title }}</h2>
+                        <h2 class="post-title" itemprop="name">> {{ post.title }}</h2>
                     </a>
                 </li>
               {% endfor %}
