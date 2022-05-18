@@ -5,11 +5,10 @@ baseurl: "https://chaz6chez.cn"
 url: "https://www.chaz6chez.cn"
 
 # User settings
-username: chaz6chez
+username: Chaz6chez
 user_title: Back-End Engineer
 email: 250220719@qq.com
 github_username:  chaz6chez
-disqus_username: loremipsum
 profile_picture: /images/avatar.jpg"
 
 # Build settings
