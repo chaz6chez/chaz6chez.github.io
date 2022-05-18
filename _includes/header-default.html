@@ -32,11 +32,11 @@
                 <li>
                     <a title="{{ project.desc }}}" href="{{ project.url }}">
                         {% if project.highlight %}
-                            <h2 class="post-title" itemprop="name">{{ project.title }}
+                            <h2 class="post-title" itemprop="name"># {{ project.title }}
                                 <mark style="background-color: darkorange"> {{ project.highlight }} </mark>
                             </h2>
                         {% else %}
-                            <h2 class="post-title" itemprop="name">{{ project.title }}</h2>
+                            <h2 class="post-title" itemprop="name"># {{ project.title }}</h2>
                         {% endif %}
                     </a>
                 </li>

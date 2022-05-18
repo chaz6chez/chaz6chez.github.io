@@ -29,35 +29,35 @@ links:
   section_1:
     - title: 首页
       url: /
-      key_trigger: 1
+      key_trigger: 🏠
     - title: 博客
       url: /posts
-      key_trigger: 2
+      key_trigger: 📃
     - title: 归档
       url: /series
-      key_trigger: 3
+      key_trigger: 📂
     - title: 标签
       url: /tags
-      key_trigger: 4
+      key_trigger: 🏷️
     - title: 关于我
       url: /about
-      key_trigger: 5
+      key_trigger: 🐰
   section_2:
     - title: Github
       url: https://github.com/chaz6chez
       new_tab: true
-      key_trigger: G
+      key_trigger: 💻
     - title: 我的知乎
       url: https://www.zhihu.com/people/chaz6chez
-      key_trigger: Z
+      key_trigger: 🙋
       new_tab: true
     - title: 网易云
       url: https://music.163.com/#/artist?id=34679151
-      key_trigger: W
+      key_trigger: 🎵
       new_tab: true
     - title: 航拍
       url: https://www.skypixel.com/users/250220719
-      key_trigger: H
+      key_trigger: 📹
       new_tab: true
 
   section_3:
