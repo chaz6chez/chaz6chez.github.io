@@ -46,16 +46,20 @@ links:
     - title: Github
       url: https://github.com/chaz6chez
       new_tab: true
-      key_trigger: g
-    - title: 知乎
+      key_trigger: G
+    - title: 我的知乎
       url: https://www.zhihu.com/people/chaz6chez
-      key_trigger: z
+      key_trigger: Z
+      new_tab: true
     - title: 网易云
       url: https://music.163.com/#/artist?id=34679151
-      key_trigger: w
-    - title: search
-      url: ""
-      key_trigger: s #WARNING: search only works with "s"
+      key_trigger: W
+      new_tab: true
+    - title: 航拍
+      url: https://www.skypixel.com/users/250220719
+      key_trigger: H
+      new_tab: true
+
   section_3:
     - title: PHP
       url: https://www.php.net/
