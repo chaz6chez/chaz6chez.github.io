@@ -32,9 +32,9 @@
                 <li>
                     <a target="_blank" title="{{ project.desc }}}" href="{{ project.url }}">
                         {% if project.highlight %}
-                            <h2 class="post-title" itemprop="name"># {{ project.title }}
-                                <mark style="background-color: darkorange"> {{ project.highlight }} </mark>
-                                - {{ project.desc }}
+                            <h2 class="post-title" itemprop="name">#
+                                <mark style="background-color: darkorange;color: yellow"> {{ project.highlight }} </mark>
+                                {{ project.title }} - {{ project.desc }}
                             </h2>
                         {% else %}
                             <h2 class="post-title" itemprop="name"># {{ project.title }} - {{ project.desc }}</h2>

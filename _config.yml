@@ -75,15 +75,15 @@ links:
 projects:
   - title: chaz6chez/structure
     url: https://github.com/chaz6chez/structure
-    desc: 一个基于PHP数组、反射机制的数据结构，可用于参数验证、过滤、转换
+    desc: 基于PHP反射的数据验证器
 
   - title: casual/database
     url: https://github.com/chaz6chez/casual-database
-    desc: A Long-living MySQL connection for daemon base on PHP
+    desc: PHP常驻内存开发的MySQL连接件
 
   - title: workbunny/nacos
     url: https://github.com/workbunny/webman-nacos
-    desc: Webman的Nacos客户端插件包
+    desc: Nacos的Webman客户端插件
 
   - title: walkor/rabbitmq
     url: https://github.com/walkor/rabbitmq

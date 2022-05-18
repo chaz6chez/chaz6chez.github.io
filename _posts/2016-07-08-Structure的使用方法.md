@@ -3,7 +3,7 @@ layout: post
 title: "PHP组件Structure的使用方法"
 date: 2016-07-08 01:00:00
 image: ''
-description: 'Chaz6chez/structure的使用方法'
+description: 'Structure的使用方法'
 tags:
   - PHP
   - 组件
