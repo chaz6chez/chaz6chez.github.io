@@ -28,15 +28,16 @@
         </div>
         <ul class="recent">
             <p>项目:</p>
-            {% for project in site.projects limit:3%}
+            {% for project in site.projects limit:5%}
                 <li>
-                    <a title="{{ project.desc }}}" href="{{ project.url }}">
+                    <a target="_blank" title="{{ project.desc }}}" href="{{ project.url }}">
                         {% if project.highlight %}
                             <h2 class="post-title" itemprop="name"># {{ project.title }}
                                 <mark style="background-color: darkorange"> {{ project.highlight }} </mark>
+                                - {{ project.desc }}
                             </h2>
                         {% else %}
-                            <h2 class="post-title" itemprop="name"># {{ project.title }}</h2>
+                            <h2 class="post-title" itemprop="name"># {{ project.title }} - {{ project.desc }}</h2>
                         {% endif %}
                     </a>
                 </li>
@@ -45,7 +46,7 @@
 
         <ul class="recent">
             <p>博客:</p>
-             {% for post in site.posts limit:3%}
+             {% for post in site.posts limit:5%}
                 <li>
                     <a title="{{ post.description }}" href="{{ post.url | prepend: site.baseurl }}">
                         <h2 class="post-title" itemprop="name">> {{ post.title }}</h2>
