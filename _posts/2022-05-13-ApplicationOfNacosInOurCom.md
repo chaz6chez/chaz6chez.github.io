@@ -7,7 +7,7 @@ description: 'Nacos在我司的应用及Webman生态的Nacos-client开发'
 tags:
 - PHP
 - 组件
-  categories:
+categories:
 - Chaz6chez
 
 ---
