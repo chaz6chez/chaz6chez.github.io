@@ -27,7 +27,7 @@ categories:
 
 - 创建一个Structure
 
-````
+```
 namespace YoursNamespace;
 use Structure\Struct;
 class User extends Struct {
@@ -53,11 +53,11 @@ class User extends Struct {
      */
     public $sex;
 }
-````
+```
 
 - 使用
 
-````
+```
     $struct = \YoursNamespace\User::factory();
     $struct->create([
         'id' => 12,
@@ -94,7 +94,7 @@ class User extends Struct {
         );
     }
     return $struct->output(); // array
-````
+```
 
 
 ## 使用说明
@@ -102,7 +102,7 @@ class User extends Struct {
 - 继承 Structure\Struct 及实现结构体
 - public属性接参
 
-````
+```
 namespace Example;
 
 use Structure\Struct;
@@ -112,31 +112,31 @@ class User extends Struct{
     public $name;
     public $sex;
 }
-````
+```
 
 - 对要操作和转化的public属性进行注释
 
-````
+```
 
     /**
      * @rule string,min:10,max:20|name format error:1001 
      */
     public $name;
-````
+```
 
 - 标签分为四个区域
     - <a href="#标签区">a区：标签区</a>
     - b区：场景区
     - c区：验证区
     - d区：内容信息
-```PHP
+```
 /**
  *  a区   b区        c区              d区
  * @标签 [场景]   验证方式   | 错误信息     : 错误码
  *      ↓           ↓           ↓             ↓
  * @rule[check] string,min:1|error message:error code  
  */                       
-````
+```
 
 ## <a id="标签区">标签区</a>：
 
@@ -162,7 +162,7 @@ class User extends Struct{
 - 将该属性标记默认模式
 - 当该属性值为null且具备@default标签时生效
 
-````
+```
     /**
      * @default string:abc
      * @default int:123
@@ -173,28 +173,29 @@ class User extends Struct{
      * @default bool:true
      */
     public $name;
-````
+```
 
 - 验证区可使用func、method进行方法赋值
     - **method:className,methodName 必须是静态方法**
     - **方法执行过程中抛出的任何异常都会被忽略，并以默认Null赋值**
 
-````
+```
     /**
      * @default func:is_array              会找到is_array函数
      * @default method:_set                会定位当前类的_set方法
      * @default method:Handler\Help,get   会定位Handler\Help类的get方法 
      */
     public $name;
+    
     public static function _set(){
         return 'abc';
     }
-````
+```
 
 - **@default仅在output()输出时生效，若要直接使用类属性获取@default赋值，请使用以下方法：**
 - **但不建议频繁使用，会多执行一次object clone操作**
 
-```PHP
+```
     // 以name的@default标签为string:John举例
     /**
      * @default string:John
@@ -202,7 +203,7 @@ class User extends Struct{
     public $name;
  ```
 
-```PHP 
+``` 
     $struct = new Struct();
     // @default无法生效，值为null
     $struct->name;
@@ -213,18 +214,18 @@ class User extends Struct{
 
 ### <a id="@required">@required</a>
 
-````
+```
     /**
      * @required true|name cannot empty
      */
     public $name;
-````
+```
 
 ### <a id="@rule">@rule</a>
 
 - 通过预置Handler进行验证
 
-````
+```
     /**
      * @rule string,min:10,max:20|name format error
      * @rule int,min:10,max:20|name format error
@@ -238,13 +239,13 @@ class User extends Struct{
      * @rule regex,min:10,max:20,regex:/.?/|name format error
      */
     public $name;
-````
+```
 
 - 验证区可使用func、method进行方法判断
     - **method:className,methodName 必须是静态方法**
     - **方法执行过程中任何异常会转化成StructureException抛出**
 
-````
+```
     /**
      * @rule func:_set                  会找到_set函数
      * @rule method:_set                会定位当前类的_set方法
@@ -256,18 +257,17 @@ class User extends Struct{
     {
         return $value === '_method';
     }
-}
 
 
-function _set($value) : bool
-{
-    return $value === '_func';
-}
-````
+    function _set($value) : bool
+    {
+        return $value === '_func';
+    }
+```
 ### <a id="@ghost">@ghost</a>
 - <a href="#输出">output()</a> 不会输出该标签
 
-````
+```
     // @ghost true
     $user->id = 'id';
 
@@ -284,13 +284,13 @@ function _set($value) : bool
         'id' => 'id',
         'name' => 'name'
     ];
-````
+```
 
 ### <a id="@key">@key</a>
 - 将该属性标记钥匙字段
 - 通过 <a href="#过滤">filter()</a>-><a href="#输出">output()</a> 可以做到仅输出钥匙字段
 
-````
+```
     // @key true
     $user->id = 'id';
 
@@ -306,7 +306,7 @@ function _set($value) : bool
     [
         'id' => 'id',
     ];
-````
+```
 
 ### <a id="@skip">@skip</a>
 - 跳过验证，但不影响输出
@@ -314,16 +314,16 @@ function _set($value) : bool
 ### <a id="@operator">@operator</a>
 
 #### 1. 识别[medoo语法-where](https://medoo.in/api/where) 并转换
-````
+```
     /**
      * @operator true 
      */ 
     public $name;
-````
+```
 
 通过 <a href="#转换">transfer()</a>-><a href="#输出">output()</a> 可以做到转换输出
 
-````
+```
     // @operator true
     $user->id = 'abc[>]';
     $user->transfer(STRUCT_TRANSFER_OPERATOR)->output();
@@ -338,12 +338,12 @@ function _set($value) : bool
     [
         'id[<>]' => ['123','456'],
     ];
-````
+```
 
     2.2以上版本完善了该标签下的类型转换
     2.2以下版本中不会对类型转换
 ##### 2.2以下版本：
-````
+```
     // @operator true
     $user->id = '123[>]';
     $user->transfer(STRUCT_TRANSFER_OPERATOR)->output();
@@ -356,7 +356,7 @@ function _set($value) : bool
        'id[>]' => 123
     ];
     // 此种状况会影响数据库查询的索引
-````
+```
 ##### 2.2以上版本：
 
 - 不仅可以配合medoo语法做处理转换，也可以直接做类型转换
@@ -364,7 +364,7 @@ function _set($value) : bool
     - 整型内容字符串转换成整型
     - 小数字符串转换成浮点型
 
-````
+```
     // @operator true
     $user->id = '123[>]';
     $user->transfer(STRUCT_TRANSFER_OPERATOR)->output();
@@ -394,12 +394,12 @@ function _set($value) : bool
     [
         'id' => 1.23
     ];
-````
+```
 
 - 可以使用强制转换标签
 
 
-````
+```
 
 # String :
 
@@ -473,13 +473,13 @@ function _set($value) : bool
     [
         'id' => true
     ];
-````
+```
 
 #### 2.使用func、method进行转换
 - **method:className,methodName 必须是静态方法**
 - **方法执行过程中任何异常会转化成StructureException抛出**
 
-````
+```
 
     /**
      * @operator func:_add                  相当于_add($name)
@@ -487,14 +487,14 @@ function _set($value) : bool
      * @operator method:Handler\Help,_add  相当于Handler\Help::_add($name)
      */
     public $name;
-````
+```
 
 
 ### <a id="@mapping">@mapping</a>
 - 将该属性标记映射处理
 - 通过 <a href="#转换">transfer()</a>-><a href="#输出">output()</a> 可以做到转换输出
 
-````
+```
     // @mapping key
     $user->id = 123;
 
@@ -512,19 +512,19 @@ function _set($value) : bool
         'key' => 123,
         'name' => 'john'
     ];
-````
+```
 
 ***
 ## 方法
 
 - 实例化
 
-````
+```
     $user = User::factory([
         'id' => 1,
         'name' => 'john'
     ],'check');
-````
+```
 
 - 输入
 
@@ -532,40 +532,40 @@ function _set($value) : bool
     - 使用属性赋值输入数据
     - **使用create可以保存<a href="#获取原始数据">原始数据</a>，使用属性赋值则不会保留原始数据**
 
-````
+```
     // 1.使用create输入数据
     $user->create([
         'id' => 1,
         'name' => 'john'
     ]); // return $this
-````
+```
 
-````
+```
     // 2.使用属性赋值输入数据
     $user->id = 1;
     $user->name = 'john';
 
     // 使用create可以保存原始数据，建议使用create输入数据
-````
+```
 
 - <a id="获取原始数据">获取原始数据</a>
 
-````
+```
     $user->getRaw(); // return array
-````
+```
 
 - 设置场景
 
-````
+```
     $user->scene('check'); // return $this
-````
+```
 
 - <a id="转换">转换</a>
 
     - STRUCT_TRANSFER_MAPPING
     - STRUCT_TRANSFER_OPERATOR
 
-````
+```
     $user->transfer(STRUCT_TRANSFER_MAPPING); // return $this
 
     // STRUCT_TRANSFER_MAPPING
@@ -576,7 +576,7 @@ function _set($value) : bool
         STRUCT_TRANSFER_MAPPING,
         STRUCT_TRANSFER_OPERATOR
     ); // return $this
-````
+```
 
 - <a id="过滤">过滤</a>
     - STRUCT_FILTER_NULL
@@ -587,7 +587,7 @@ function _set($value) : bool
     - STRUCT_FILTER_OPERATOR
     - STRUCT_FILTER_OPERATOR_REVERSE
 
-````
+```
     $user->filter(STRUCT_FILTER_NULL); // return $this
 
     // STRUCT_FILTER_NULL
@@ -603,23 +603,23 @@ function _set($value) : bool
         STRUCT_FILTER_NULL,
         STRUCT_FILTER_EMPTY
     ); // return $this
-````
+```
 
 - <a id="验证">验证</a>
 
-````
+```
     $user->validate(); // return bool
     $user->hasError(); // return bool
 
     // true 有错误，验证未通过
     // false 无错误，验证通过
-````
+```
 
 - 获取错误
 
     - 需要在<a href="#验证">验证</a>执行后才能获取错误信息
 
-````
+```
     $user->getError(); // return Structure\Error
 
     $user->getError()->getMessage();  // 错误信息 string
@@ -629,38 +629,38 @@ function _set($value) : bool
 
     $user->getErrors(); // return Structure\Error[]
 
-````
+```
 
 - <a id="输出">输出</a>
 
     - 全量输出会进行<a href="#转换">转换</a>和default赋值
     - 全量输出不进行<a href="#过滤">过滤</a>
 
-````
+```
     $user->output(); // return array
 
     $user->output(true); // 全量输出
-````
+```
 
 - 清洗
 
-````
+```
     $user->clean(); // 默认不装载raw数据
 
     $user->clean(true); // 装载raw数据
-````
+```
 
 ## 补充
 
 - Handler 接受自定义注册
 
-````
+```
     \Structure\Handler::register();
-````
+```
 
 - StructureException
 
-````
+```
     try {
         // ...                          
     }catch (\Structure\Exceptions\StructureException $exception){
@@ -668,4 +668,4 @@ function _set($value) : bool
         $exception->getMessage(); // Structure Exception [{position info}]
         $exception->getCode(); // 始终以-666返回
     }
-````
+```
