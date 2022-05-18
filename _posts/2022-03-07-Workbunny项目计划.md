@@ -3,11 +3,14 @@ layout: post
 title:  "Workbunny项目计划"
 image: ''
 date:   2022-03-07 18:00:00
-tags: "计划"
-- mongodb
-  description: ''
-  categories:
-- Learn Jekyll
+image: ''
+description: '一个基于golang开发的轻量级高性能任务调度服务的开发计划'
+tags:
+ - Golang
+ - 计划
+ - 服务
+categories:
+ - Chaz6chez
 ---
 
 # Workbunny/workbunny

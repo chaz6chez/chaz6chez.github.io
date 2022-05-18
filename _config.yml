@@ -42,7 +42,6 @@ links:
     - title: 关于我
       url: /about
       key_trigger: 5
-  section_2:
     - title: Github
       url: https://github.com/chaz6chez
       new_tab: true
@@ -56,8 +55,6 @@ links:
     - title: search
       url: ""
       key_trigger: s #WARNING: search only works with "s"
-
-  section_3:
     - title: PHP
       url: https://www.php.net/
       external: true

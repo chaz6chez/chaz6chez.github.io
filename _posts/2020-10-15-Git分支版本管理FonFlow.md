@@ -3,11 +3,13 @@ layout: post
 title:  "Git分支管理 - FoneFlow分支模型"
 image: ''
 date:   2020-10-15 14:00:00
-tags: "git"
-- mongodb
-  description: ''
-  categories:
-- Learn Jekyll
+image: ''
+description: '借鉴AoneFlow的适合我司的分支管理模型'
+tags:
+ - Git
+ - 分支管理
+categories:
+ - Chaz6chez
 ---
 
 # <center>FoneFlow分支模型</center>

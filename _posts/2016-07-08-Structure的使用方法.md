@@ -1,13 +1,14 @@
 ---
 layout: post
-title:  "chaz6chez/structure的使用方法"
+title: "Chaz6chez/structure的使用方法"
+date: 2016-07-08 01:00:00
 image: ''
-date:   2016-07-08 11:00:00
-tags: "PHP"
-- mongodb
-  description: ''
-  categories:
-- Learn Jekyll
+description: 'Chaz6chez/structure的使用方法'
+tags:
+  - PHP
+  - 组件
+categories:
+  - Chaz6chez
 ---
 
 # [Structure](https://github.com/chaz6chez/structure)
