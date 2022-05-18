@@ -90,7 +90,7 @@ projects:
     desc: Workerman官方RabbitMQ异步客户端组件
 
   - title: Workbunny
-    url: 计划-workbunny项目计划
+    url: /WorkbunnysProjectPlan
     desc: 基于Golang开发的轻量级高性能任务调度服务
     highlight: Plan
 
