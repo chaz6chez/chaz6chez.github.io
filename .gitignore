@@ -1,7 +1,4 @@
-*.gem
-.bundle
-.jekyll-cache
-.sass-cache
 _site
-.git
-.idea
+.sass-cache
+node_modules
+_drafts

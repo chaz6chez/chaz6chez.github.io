@@ -1,48 +1,95 @@
-title: Chaz6chez'Blog
-SEOTitle: Chaz6chez'Blog | Chaz6chez的博客
-author: Chaz6chez
-email: admin@chaz6chez.cn
-url: https://www.chaz6chez.cn
-keyword: chaz6chez, c6c, blog, chaz6chez的博客, Golang, PHP, Python
-description: > # description of the site (multiple lines allowed)
-  I sot u'r soul free.
+# Site settings
+title: Chaz6chez's Blog
+description: "I sot u'r soul free. "
+baseurl: "https://chaz6chez.cn"
+url: "https://www.chaz6chez.cn"
 
-  努力分享一下日常的生活及工作的心得。
+# User settings
+username: chaz6chez
+user_title: Back-End Engineer
+email: 250220719@qq.com
+github_username:  chaz6chez
+disqus_username: loremipsum
+profile_picture: /images/avatar.jpg"
 
-permalink: /:slug
-
-favicon: "./../images/favicon.ico" # relative path to site's favicon
-
-remote_theme: abhinavs/moonwalk
-
-theme_config:
-  appearance: "auto" # can be "light", "dark" or "auto"
-  appearance_toggle: true # if appearance can be switched by user
-  back_home_text: "🏠 Home ->" # customize text for homepage link in post layout
-  date_format: "%Y-%m-%d" # customize how date is formatted
-  show_description: true # show blog description
-  show_navbar: true # show horizontal navbar
-  show_footer: true # show footer links in home page,add in _data/home.yml
-  show_copyright: true # show copyright notice in footer
-  # following keys are using to create home layout
-  show_projects: true # show projects as cards, add in _data/home.yml
-  show_blog: false # show blog posts added in _posts
-  show_old_projects: false # show old projects as cards, add in _data/home.yml
-  show_misc_list: true # show generic vertical list for misc details, add _data/home.yml
-  # options for "home" page
-  home:
-    title_projects: Project
-    title_misc_list: Details
-    title_blog: Blog
-
-soopr:
-  publish_token: "" # sign up at https://www.soopr.co to get your publish token and personalize share and reaction options
-
+# Build settings
+markdown: kramdown
 highlighter: rouge
+permalink: /:title/
 
-sass:
-  style: compressed
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
 
-plugins:
-  - jekyll-feed
-  - jekyll-soopr-seo-tag
+# Links to include in menu navigation
+links:
+  section_1:
+    - title: 首页
+      url: /
+      key_trigger: 🏠
+    - title: 博客
+      url: /posts
+      key_trigger: 📖
+    - title: 归档
+      url: /series
+      key_trigger: 🗄️
+    - title: 标签
+      url: /tags
+      key_trigger: 🏷️
+    - title: 关于我
+      url: /about
+      key_trigger: 😂
+  section_2:
+    - title: Github
+      url: https://github.com/chaz6chez
+      new_tab: true
+      key_trigger: g
+    - title: 知乎
+      url: https://www.zhihu.com/people/chaz6chez
+      key_trigger: z
+    - title: 网易云
+      url: https://music.163.com/#/artist?id=34679151
+      key_trigger: w
+    - title: search
+      url: ""
+      key_trigger: s #WARNING: search only works with "s"
+
+  section_3:
+    - title: PHP
+      url: https://www.php.net/
+      external: true
+    - title: Golang
+      url: https://golang.google.cn/
+      external: true
+    - title: Python
+      url: https://www.python.org/
+      external: true
+
+# projects in header index
+projects:
+  - title: chaz6chez/structure
+    url: https://github.com/chaz6chez/structure
+    desc: 一个基于PHP数组、反射机制的数据结构，可用于参数验证、过滤、转换
+
+  - title: casual/database
+    url: https://github.com/chaz6chez/casual-database
+    desc: A Long-living MySQL connection for daemon base on PHP
+
+  - title: workbunny/nacos
+    url: https://github.com/workbunny/webman-nacos
+    desc: Webman的Nacos客户端插件包
+
+  - title: walkor/rabbitmq
+    url: https://github.com/walkor/rabbitmq
+    desc: Workerman官方RabbitMQ异步客户端组件
+
+  - title: Workbunny
+    url: 计划-workbunny项目计划
+    desc: 基于Golang开发的轻量级高性能任务调度服务
+    highlight: Plan
+
+# exclude my node related stuff
+exclude: ['package.json', 'src', 'node_modules']
