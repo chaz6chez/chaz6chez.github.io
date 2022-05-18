@@ -27,13 +27,13 @@
             </a>
         </div>
         <ul class="recent">
-            <p>我的项目:</p>
+            <p>项目:</p>
             {% for project in site.projects limit:3%}
-            <li>
-                <a title="{{ project.desc }}}" href="{{ project.url }}">
-                    <h2 class="post-title" itemprop="name">{{ project.name }}</h2>
-                </a>
-            </li>
+                <li>
+                    <a title="{{ project.desc }}}" href="{{ project.url }}">
+                        <h2 class="post-title" itemprop="name">{{ project.name }}</h2>
+                    </a>
+                </li>
             {% endfor %}
         </ul>
 
