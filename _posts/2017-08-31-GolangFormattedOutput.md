@@ -17,13 +17,6 @@ categories:
 
 - 使用 **动词 v** 格式化 arg列表，**非字符串**元素之间添加空格
 
-<pre>
-<code class="html">
-Print(arg列表)
-</code>
-</pre>
-
-
 ```html
 Print(arg列表)
 ```
