@@ -15,12 +15,8 @@ profile_picture: /images/avatar.jpg"
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
+highlighter: pygments #rouge
 permalink: /:title/
-
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
 
 # html minify
 compress_html:
