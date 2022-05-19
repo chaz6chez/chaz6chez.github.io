@@ -15,8 +15,18 @@ profile_picture: /images/avatar.jpg"
 
 # Build settings
 markdown: kramdown
-highlighter: pygments #rouge
-permalink: /:title/
+highlighter: rouge
+permalink: date #/:title/
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  math_engine: mathjax
+  syntax_highlighter: rouge
+  entity_output: as_char
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  input: GFM
+  hard_wrap: false
 
 # html minify
 compress_html:

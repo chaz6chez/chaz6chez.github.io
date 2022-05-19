@@ -5,14 +5,31 @@ permalink: /about/index.html
 description: "Some description about Victor Igor..."
 ---
 
-<img itemprop="image" class="img-rounded about_perfil" src=" https://68.media.tumblr.com/93f384858e9273d5b980b418e2f2f4d5/tumblr_o5i2aybLJG1uapsfmo2_250.png" alt="My profile">
+<img itemprop="image" class="img-rounded about_perfil" src="{{site.profile_picture}}" alt="My profile">
 
-<h2>My projects</h2>
+<h2>{% site.description %}</h2>
 
 <div class="aboutme">
+	<p>我的项目：</p>
 	<ul class="recent">
 		{% for project in site.projects %}
-	    	<li><a href="{{ project.url}}"><h3 class="project-name" itemprop="name">{{ project.name }}</h3></a></li>
-	    {% endfor %}
+		<li>
+			{% if project.new_tab%}
+			<a target="_blank" title="{{ project.desc }}}" href="{{ project.url }}">
+				{% else %}
+				<a title="{{ project.desc }}}" href="{{ project.url }}">
+					{% endif %}
+
+					{% if project.highlight %}
+					<h2 class="post-title" itemprop="name">#
+						<mark style="background-color: darkorange;color: yellow"> {{ project.highlight }} </mark>
+						{{ project.title }} - {{ project.desc }}
+					</h2>
+					{% else %}
+					<h2 class="post-title" itemprop="name"># {{ project.title }} - {{ project.desc }}</h2>
+					{% endif %}
+				</a>
+		</li>
+		{% endfor %}
 	</ul>
 </div>
