@@ -39,15 +39,15 @@ PHP在SOA中扮演了Web业务服务的一个角色，主要是进行一些业�
 
 我们在配置中使用yaml文件作为了环境配置替代了原有的.env文件，并且将yaml文件保存在nacos对应的namespace；相当于业务使用config函数的时候，config函数会找到config目录下对应的php文件，PHP文件中又使用yaml函数去调用对应的yaml文件引入对应的值，调用链可以理解为如下：
 
-~~~
+```php
 config() -> /config/X.php -> yaml() -> /x.yaml
-~~~
+```
 
 **这个过程完全可以简化成config()直接找到config目录的对应php文件，将多个php文件保存至nacos对应的namespace下。**
 
 基于上述的过程，我最早使用了Timer + Guzzle异步请求 + nacos长轮询监听 保证 **时效性**，因为存在多个yaml文件，所以需要对多个yaml文件进行监听，如果单纯一个配置开一个进程有点太奢侈，所以我使用了一个进程 + Guzzle异步请求；Nacos监听的长轮询机制你可以理解为如果有消息，就马上返回对应的配置id，如果没消息，就一直阻塞到timeout并且返回一个空字符串；考虑到请求会阻塞，为了不影响该进程内Timer的下一个执行周期，我将Timer的间隔时长和长轮询阻塞时长画上了等号。
 
-~~~
+```php
 	public function onWorkerStart(Worker $worker)
     {
         $worker->count = 1;
@@ -91,7 +91,7 @@ config() -> /config/X.php -> yaml() -> /x.yaml
             });
         }
     }
-~~~
+```
 
 
 第一版完成后我发现了一些问题：
@@ -100,7 +100,8 @@ config() -> /config/X.php -> yaml() -> /x.yaml
 3. Timer的第一次执行并不能立即执行，导致初次启动时并不能及时获取最新的配置文件
 
 为了解决第一个问题，我在_get方法内加入了对workers的reload
-~~~
+
+```php
 	protected function _get(string $dataId, string $group, string $tenant, string $path)
     {
         $res = $this->client->config->get($dataId, $group, $tenant);
@@ -108,9 +109,9 @@ config() -> /config/X.php -> yaml() -> /x.yaml
             reload($path);
         }
     }
-~~~
+```
 
-~~~
+```php
 	function reload(string $file)
 	{
     	Worker::log($file . ' update and reload. ');
@@ -120,11 +121,11 @@ config() -> /config/X.php -> yaml() -> /x.yaml
         	Worker::reloadAllWorkers();
     	}
 	}
-~~~
+```
 
 第二个问题我使用了Workerman/http-client的异步http客户端，在使用的过程中还有个 [小插曲](https://www.workerman.net/q/8452) ，由于http-client使用了workerman的event-loop，我的项目是在workerman的on回调生命周期内，所以可以利用event-loop达到无阻塞的请求；
 
-~~~
+```php
 	public function onWorkerStart(Worker $worker)
     {
         $worker->count = 1;
@@ -156,11 +157,11 @@ config() -> /config/X.php -> yaml() -> /x.yaml
             }
         }
     }
-~~~
+```
 
 第三个问题，我基于workerman/timer封装了一个简易的能达到我目的的timer：
 
-~~~
+```php
 <?php
 declare(strict_types=1);
 
@@ -249,7 +250,7 @@ final class Timer {
         WorkermanTimer::delAll();
     }
 }
-~~~
+```
 
 
 ## 之后想到什么再补充吧

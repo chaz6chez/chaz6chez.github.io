@@ -25,7 +25,7 @@ categories:
 
 程序最开始就如同写文章一般，从上至下，然后伴随着一个return结束：
 
-```
+```c
 #include<stdio.h>
 
 main(){
@@ -35,7 +35,7 @@ main(){
 
 这个程序对于系统来说是一个唯一入口，有点类似于PHP的index.php入口对于PHP zendVM一样，也是唯一入口：
 
-```
+```php
 <?php
     # 啥也没有
 ?>

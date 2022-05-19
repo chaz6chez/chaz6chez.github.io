@@ -27,7 +27,7 @@ categories:
 
 - 创建一个Structure
 
-```
+```php
 namespace YoursNamespace;
 use Structure\Struct;
 class User extends Struct {
@@ -57,7 +57,7 @@ class User extends Struct {
 
 - 使用
 
-```
+```php
     $struct = \YoursNamespace\User::factory();
     $struct->create([
         'id' => 12,
@@ -102,7 +102,7 @@ class User extends Struct {
 - 继承 Structure\Struct 及实现结构体
 - public属性接参
 
-```
+```php
 namespace Example;
 
 use Structure\Struct;
@@ -116,8 +116,7 @@ class User extends Struct{
 
 - 对要操作和转化的public属性进行注释
 
-```
-
+```php
     /**
      * @rule string,min:10,max:20|name format error:1001 
      */
@@ -129,7 +128,8 @@ class User extends Struct{
     - b区：场景区
     - c区：验证区
     - d区：内容信息
-```
+
+```php
 /**
  *  a区   b区        c区              d区
  * @标签 [场景]   验证方式   | 错误信息     : 错误码
@@ -162,7 +162,7 @@ class User extends Struct{
 - 将该属性标记默认模式
 - 当该属性值为null且具备@default标签时生效
 
-```
+```php
     /**
      * @default string:abc
      * @default int:123
@@ -179,7 +179,7 @@ class User extends Struct{
     - **method:className,methodName 必须是静态方法**
     - **方法执行过程中抛出的任何异常都会被忽略，并以默认Null赋值**
 
-```
+```php
     /**
      * @default func:is_array              会找到is_array函数
      * @default method:_set                会定位当前类的_set方法
@@ -195,7 +195,7 @@ class User extends Struct{
 - **@default仅在output()输出时生效，若要直接使用类属性获取@default赋值，请使用以下方法：**
 - **但不建议频繁使用，会多执行一次object clone操作**
 
-```
+```php
     // 以name的@default标签为string:John举例
     /**
      * @default string:John
@@ -203,7 +203,7 @@ class User extends Struct{
     public $name;
  ```
 
-``` 
+```php
     $struct = new Struct();
     // @default无法生效，值为null
     $struct->name;
@@ -214,7 +214,7 @@ class User extends Struct{
 
 ### <a id="@required">@required</a>
 
-```
+```php
     /**
      * @required true|name cannot empty
      */
@@ -225,7 +225,7 @@ class User extends Struct{
 
 - 通过预置Handler进行验证
 
-```
+```php
     /**
      * @rule string,min:10,max:20|name format error
      * @rule int,min:10,max:20|name format error
@@ -245,7 +245,7 @@ class User extends Struct{
     - **method:className,methodName 必须是静态方法**
     - **方法执行过程中任何异常会转化成StructureException抛出**
 
-```
+```php
     /**
      * @rule func:_set                  会找到_set函数
      * @rule method:_set                会定位当前类的_set方法
@@ -267,7 +267,7 @@ class User extends Struct{
 ### <a id="@ghost">@ghost</a>
 - <a href="#输出">output()</a> 不会输出该标签
 
-```
+```php
     // @ghost true
     $user->id = 'id';
 
@@ -290,7 +290,7 @@ class User extends Struct{
 - 将该属性标记钥匙字段
 - 通过 <a href="#过滤">filter()</a>-><a href="#输出">output()</a> 可以做到仅输出钥匙字段
 
-```
+```php
     // @key true
     $user->id = 'id';
 
@@ -314,7 +314,8 @@ class User extends Struct{
 ### <a id="@operator">@operator</a>
 
 #### 1. 识别[medoo语法-where](https://medoo.in/api/where) 并转换
-```
+
+```php
     /**
      * @operator true 
      */ 
@@ -323,7 +324,7 @@ class User extends Struct{
 
 通过 <a href="#转换">transfer()</a>-><a href="#输出">output()</a> 可以做到转换输出
 
-```
+```php
     // @operator true
     $user->id = 'abc[>]';
     $user->transfer(STRUCT_TRANSFER_OPERATOR)->output();
@@ -343,7 +344,8 @@ class User extends Struct{
     2.2以上版本完善了该标签下的类型转换
     2.2以下版本中不会对类型转换
 ##### 2.2以下版本：
-```
+
+```php
     // @operator true
     $user->id = '123[>]';
     $user->transfer(STRUCT_TRANSFER_OPERATOR)->output();
@@ -364,7 +366,7 @@ class User extends Struct{
     - 整型内容字符串转换成整型
     - 小数字符串转换成浮点型
 
-```
+```php
     // @operator true
     $user->id = '123[>]';
     $user->transfer(STRUCT_TRANSFER_OPERATOR)->output();
@@ -398,9 +400,7 @@ class User extends Struct{
 
 - 可以使用强制转换标签
 
-
-```
-
+```php
 # String :
 
     // @operator true
@@ -479,8 +479,7 @@ class User extends Struct{
 - **method:className,methodName 必须是静态方法**
 - **方法执行过程中任何异常会转化成StructureException抛出**
 
-```
-
+```php
     /**
      * @operator func:_add                  相当于_add($name)
      * @operator method:_add                相当于$this->_add($name)
@@ -494,7 +493,7 @@ class User extends Struct{
 - 将该属性标记映射处理
 - 通过 <a href="#转换">transfer()</a>-><a href="#输出">output()</a> 可以做到转换输出
 
-```
+```php
     // @mapping key
     $user->id = 123;
 
@@ -519,7 +518,7 @@ class User extends Struct{
 
 - 实例化
 
-```
+```php
     $user = User::factory([
         'id' => 1,
         'name' => 'john'
@@ -532,7 +531,7 @@ class User extends Struct{
     - 使用属性赋值输入数据
     - **使用create可以保存<a href="#获取原始数据">原始数据</a>，使用属性赋值则不会保留原始数据**
 
-```
+```php
     // 1.使用create输入数据
     $user->create([
         'id' => 1,
@@ -540,7 +539,7 @@ class User extends Struct{
     ]); // return $this
 ```
 
-```
+```php
     // 2.使用属性赋值输入数据
     $user->id = 1;
     $user->name = 'john';
@@ -550,13 +549,13 @@ class User extends Struct{
 
 - <a id="获取原始数据">获取原始数据</a>
 
-```
+```php
     $user->getRaw(); // return array
 ```
 
 - 设置场景
 
-```
+```php
     $user->scene('check'); // return $this
 ```
 
@@ -565,7 +564,7 @@ class User extends Struct{
     - STRUCT_TRANSFER_MAPPING
     - STRUCT_TRANSFER_OPERATOR
 
-```
+```php
     $user->transfer(STRUCT_TRANSFER_MAPPING); // return $this
 
     // STRUCT_TRANSFER_MAPPING
@@ -587,7 +586,7 @@ class User extends Struct{
     - STRUCT_FILTER_OPERATOR
     - STRUCT_FILTER_OPERATOR_REVERSE
 
-```
+```php
     $user->filter(STRUCT_FILTER_NULL); // return $this
 
     // STRUCT_FILTER_NULL
@@ -607,7 +606,7 @@ class User extends Struct{
 
 - <a id="验证">验证</a>
 
-```
+```php
     $user->validate(); // return bool
     $user->hasError(); // return bool
 
@@ -619,7 +618,7 @@ class User extends Struct{
 
     - 需要在<a href="#验证">验证</a>执行后才能获取错误信息
 
-```
+```php
     $user->getError(); // return Structure\Error
 
     $user->getError()->getMessage();  // 错误信息 string
@@ -628,7 +627,6 @@ class User extends Struct{
     $user->getError()->getPosition(); // 错误定位 对应Handler对应的options字段
 
     $user->getErrors(); // return Structure\Error[]
-
 ```
 
 - <a id="输出">输出</a>
@@ -636,7 +634,7 @@ class User extends Struct{
     - 全量输出会进行<a href="#转换">转换</a>和default赋值
     - 全量输出不进行<a href="#过滤">过滤</a>
 
-```
+```php
     $user->output(); // return array
 
     $user->output(true); // 全量输出
@@ -644,7 +642,7 @@ class User extends Struct{
 
 - 清洗
 
-```
+```php
     $user->clean(); // 默认不装载raw数据
 
     $user->clean(true); // 装载raw数据
@@ -654,13 +652,13 @@ class User extends Struct{
 
 - Handler 接受自定义注册
 
-```
+```php
     \Structure\Handler::register();
 ```
 
 - StructureException
 
-```
+```php
     try {
         // ...                          
     }catch (\Structure\Exceptions\StructureException $exception){

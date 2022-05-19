@@ -17,23 +17,23 @@ categories:
 
 - 使用 **动词 v** 格式化 arg列表，**非字符串**元素之间添加空格
 
-{% highlight golang %}
+```golang
 Print(arg列表)
-{% endhighlight %}
+```
 
 
 - 使用 **动词 v** 格式化 arg 列表，**所有元素**之间添加空格，结尾添加换行符
 
-{% highlight golang %}
+```golang
 Println(arg列表)
-{% endhighlight %}
+```
 
 - 使用 **格式字符串** 格式化 arg 列表
 
 
-{% highlight golang %}
+```golang
 Printf(格式字符串, arg列表)
-{% endhighlight %}
+```
 
 **PS:** Print 类函数会返回已处理的 arg 数量和遇到的错误信息
 
