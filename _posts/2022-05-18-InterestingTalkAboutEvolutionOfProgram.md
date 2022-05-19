@@ -46,7 +46,7 @@ main(){
 这样的程序其实跟脚本是类似的，从上执行到结束、退出；既然这样的程序和脚本类似，我么就把它比作一张纸，
 我们可以在这张纸上胡作非为，写上A\B\C\D随便什么都可以，它就会按照从上到下直到结束：
 
-![1](./../images/TheEvolutionOfTheProgram/1.png)
+![1](/images/TheEvolutionOfTheProgram/1.png)
 
 如上图，这个程序就完成了一个结合了A+B+C+D的业务逻辑，我们称它ABCD；
 
@@ -58,13 +58,13 @@ main(){
 
 于是我们丰富了一下程序，利用了编程语言基础的逻辑判断的特性：
 
-![2](./../images/TheEvolutionOfTheProgram/2.png)
+![2](/images/TheEvolutionOfTheProgram/2.png)
 
 但是我们不满足于此，因为A\B\C\D都有可能带来判断，甚至可能加入E\F\G等等等等……
 
 那么这时候，程序如果按照这样的发展趋势，应该会变成：
 
-![3](./../images/TheEvolutionOfTheProgram/3.png)
+![3](/images/TheEvolutionOfTheProgram/3.png)
 
 CAO！这肯定不是每个程序员想要的结果！
 
@@ -73,7 +73,7 @@ CAO！这肯定不是每个程序员想要的结果！
 当然过程对象也可以达到这个效果，只不过需要引入各式各样的纸张，且不同纸张内容可能出现重复，
 甚至不符合人的思维逻辑：
 
-![4](./../images/TheEvolutionOfTheProgram/4.png)
+![4](/images/TheEvolutionOfTheProgram/4.png)
 
 ## 它转起来了！
 
@@ -92,7 +92,7 @@ CAO！这肯定不是每个程序员想要的结果！
 那么为了实现这样的程序，我们该怎么做呢，怎么让这个程序不断地重复重复再重复呢？这时候可以利用语言特性：
 **循环**，在循环的作用下，由上至下的程序则会变成这个样子：
 
-![5](./../images/TheEvolutionOfTheProgram/5.png)
+![5](/images/TheEvolutionOfTheProgram/5.png)
 
 wocao！它转起来了，转起来了！这不就是常驻内存的程序吗？当然，这里面我省略了一些接受系统通知、监控的步骤，
 那么我们就假设这个圈就是一个系统，每个纸张就是程序，循环飞速的运转，那么每个程序都可以快速的运转，
@@ -108,7 +108,7 @@ wocao！它转起来了，转起来了！这不就是常驻内存的程序吗？
 去组合出ABC等一些特性的上层程序，我们的”纸张“和A\B\C\D一样，也在这个大循环内，我们的程序也可以通过一些共享手段与它们通讯/交换信息，
 如下图：
 
-![6](./../images/TheEvolutionOfTheProgram/6.png)
+![6](/images/TheEvolutionOfTheProgram/6.png)
 
 为了避免每个程序一直挂在那里影响循环后面的其他程序，通常来说都需要合理的分配每个程序执行的最大时间，
 如果没执行完，那就等下一个循环接着执行（具体可以看看Linux时间片算法，这里不展开说了）；假定每个程序最大执行时间是1秒，

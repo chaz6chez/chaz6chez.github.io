@@ -29,7 +29,7 @@ categories:
 
 FoneFlow与AoneFlow类似，FoneFlow的分支描述图如下：
 
-![](../images/SolutionsForGitBranchManagement/FoneFlow.jpg)
+![](/images/SolutionsForGitBranchManagement/FoneFlow.jpg)
 
 ### 1.规范
 

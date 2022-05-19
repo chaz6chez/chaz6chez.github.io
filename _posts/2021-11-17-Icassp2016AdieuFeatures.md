@@ -13,9 +13,9 @@ categories:
 
 ---
 
-![](../images/Icassp2016AdieuFeatures/051918374857_0icassp_2016_adieu_features_1.jpg)
-![](../images/Icassp2016AdieuFeatures/051918374857_0icassp_2016_adieu_features_2.jpg)
-![](../images/Icassp2016AdieuFeatures/051918374857_0icassp_2016_adieu_features_3.jpg)
-![](../images/Icassp2016AdieuFeatures/051918374857_0icassp_2016_adieu_features_4.jpg)
-![](../images/Icassp2016AdieuFeatures/051918374857_0icassp_2016_adieu_features_5.jpg)
-![](../images/Icassp2016AdieuFeatures/051918374857_0icassp_2016_adieu_features_6.jpg)
+![](/images/Icassp2016AdieuFeatures/051918374857_0icassp_2016_adieu_features_1.jpg)
+![](/images/Icassp2016AdieuFeatures/051918374857_0icassp_2016_adieu_features_2.jpg)
+![](/images/Icassp2016AdieuFeatures/051918374857_0icassp_2016_adieu_features_3.jpg)
+![](/images/Icassp2016AdieuFeatures/051918374857_0icassp_2016_adieu_features_4.jpg)
+![](/images/Icassp2016AdieuFeatures/051918374857_0icassp_2016_adieu_features_5.jpg)
+![](/images/Icassp2016AdieuFeatures/051918374857_0icassp_2016_adieu_features_6.jpg)
