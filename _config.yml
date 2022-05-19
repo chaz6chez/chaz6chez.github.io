@@ -23,8 +23,7 @@ kramdown:
   footnote_nr: 1
   math_engine: mathjax
   syntax_highlighter: rouge
-  entity_output: as_char
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
+
   input: GFM
   hard_wrap: false
 

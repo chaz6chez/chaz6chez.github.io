@@ -21,33 +21,32 @@ categories:
 Print(arg列表)
 {% endhighlight %}
 
-```
-Print(arg列表)
-```
 
 - 使用 **动词 v** 格式化 arg 列表，**所有元素**之间添加空格，结尾添加换行符
 
-```
+{% highlight golang %}
 Println(arg列表)
-```
+{% endhighlight %}
+
 - 使用 **格式字符串** 格式化 arg 列表
 
-```
+
+{% highlight golang %}
 Printf(格式字符串, arg列表)
-```
+{% endhighlight %}
 
 **PS:** Print 类函数会返回已处理的 arg 数量和遇到的错误信息
 
 ## 格式化字符串
 - 格式字符串由普通字符和占位符组成，例如：
 
-```
+```golang
 abc%+ #8.3[3]vdef
 ```
 
 - **其中 abc 和 def 是普通字符**，其它部分是占位符，占位符以 % 开头，以 **动词v** 结尾
 
-```
+```golang
 %[旗标][宽度][.精度][arg索引]动词
 ```
 
@@ -87,13 +86,13 @@ abc%+ #8.3[3]vdef
 
 - **arg索引**: 由中括号和 arg 序号组成，如
 
-```
+```golang
 # 其中的[3]，用于指定当前要处理的 arg 的序号，序号从 1 开始
 
 abc%+ #8.3[3]vdef
 ```
 
-```
+```golang
 '[' + arg序号 + ']'
 ```
 
@@ -170,7 +169,7 @@ abc%+ #8.3[3]vdef
 
 #### 代码示例
 
-```
+```golang
 package main
 
 import "fmt"
@@ -231,7 +230,7 @@ func main() {
 
 **在实现格式化相关接口的时候，要避免无限递归的情况，比如：**
 
-```
+```golang
 type X string
 
 /*
@@ -250,7 +249,7 @@ func (x X) String() string {
 **无限递归也可能发生在自引用数据类型上面，比如一个切片的元素引用了切片自身。
 这种情况比较罕见，比如：**
 
-```
+```golang
 a := make([]interface{}, 1)
 a[0] = a
 fmt.Println(a)
