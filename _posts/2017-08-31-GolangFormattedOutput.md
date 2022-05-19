@@ -17,6 +17,10 @@ categories:
 
 - 使用 **动词 v** 格式化 arg列表，**非字符串**元素之间添加空格
 
+{% highlight golang %}
+Print(arg列表)
+{% endhighlight %}
+
 ```
 Print(arg列表)
 ```
