@@ -5,6 +5,10 @@
 
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 
+    <link rel="stylesheet"
+          href="//unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/default.min.css">
+    <script src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js"></script>
+
     <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
     <!-- Google Authorship Markup -->
