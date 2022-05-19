@@ -35,7 +35,7 @@ links:
     - title: 首页
       url: /
       key_trigger: 🏠
-    - title: 博客
+    - title: 目录
       url: /posts
       key_trigger: 📃
     - title: 归档
