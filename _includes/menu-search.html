@@ -38,26 +38,19 @@
     {% for section in site.links %}
       <ul>
       {% for link in section[1] %}
-        {% if link.external %}
-            <li>
-                <a target="_blank" href="{{ link.url }}">{{ link.title }}</a>
-            </li>
-        {% else %}
-            <li>
-                <span class="counter-menu">{{link.key_trigger}}</span>
-                <svg viewBox="0 0 50 50" class="icon-arrow-menu">
-                    <use xlink:href="#icon-right-arrow"></use>
-                </svg>
-                {% if link.new_tab %}
-                    <a key-trigger={{ link.key_trigger }} target="_blank"
-                        href="{{ site.url }}{{ link.url }}"> {{ link.title }}</a>
-                {% else %}
-                    <a key-trigger={{ link.key_trigger }}
-                        href="{{ site.url }}{{ link.url }}"> {{ link.title }}</a>
-                {% endif %}
-
-            </li>
-        {% endif %}
+          <li>
+              <span class="counter-menu">{{link.key_trigger}}</span>
+              <svg viewBox="0 0 50 50" class="icon-arrow-menu">
+                  <use xlink:href="#icon-right-arrow"></use>
+              </svg>
+              {% if link.external %}
+              <a key-trigger={{ link.key_trigger }} target="_blank"
+                 href="{{ link.url }}"> {{ link.title }}</a>
+              {% else %}
+              <a key-trigger={{ link.key_trigger }}
+                 href="{{ site.url }}{{ link.url }}"> {{ link.title }}</a>
+              {% endif %}
+          </li>
       {% endfor %}
       </ul>
     {% endfor %}

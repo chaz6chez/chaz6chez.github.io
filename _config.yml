@@ -47,33 +47,39 @@ links:
     - title: 关于我
       url: /about
       key_trigger: 🐰
+
   section_2:
     - title: Github
       url: https://github.com/chaz6chez
-      new_tab: true
+      external: true
       key_trigger: 💻
     - title: 我的知乎
       url: https://www.zhihu.com/people/chaz6chez
       key_trigger: 🙋
-      new_tab: true
+      external: true
     - title: 网易云
       url: https://music.163.com/#/artist?id=34679151
       key_trigger: 🎵
-      new_tab: true
+      external: true
     - title: 航拍
       url: https://www.skypixel.com/users/250220719
       key_trigger: 📹
-      new_tab: true
+      external: true
 
   section_3:
     - title: PHP
       url: https://www.php.net/
+      key_trigger: 💻
       external: true
+
     - title: Golang
       url: https://golang.google.cn/
+      key_trigger: 💻
       external: true
+
     - title: Python
       url: https://www.python.org/
+      key_trigger: 💻
       external: true
 
 # projects in header index
