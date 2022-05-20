@@ -13,6 +13,11 @@ github_username:  chaz6chez
 zhihu_username:  chaz6chez
 profile_picture: /images/avatar.jpg"
 
+# valine
+valine_enable: true
+valine_appid: '9ezjjBFDS7WDBFuQd5cmguts-gzGzoHsz'
+valine_appkey: 'aGuQp34CBAhgakzz42duUbsb'
+
 # Build settings
 markdown: kramdown
 highlighter: rouge

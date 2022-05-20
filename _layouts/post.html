@@ -18,7 +18,11 @@
             </article>
 
 <!--            {% include share.html %}-->
-<!--            {% include comments.html %}-->
+            {% if site.valine_enable %}
+                {% include comments.html %}
+            {% else %}
+            {% endif%}
+
             {% include footer.html %}
             {% include scripts.html %}
         </section>
