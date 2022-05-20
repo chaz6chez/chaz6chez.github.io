@@ -106,9 +106,8 @@ projects:
     desc: Workerman官方RabbitMQ异步客户端组件
 
   - title: Workbunny
-    url: /WorkbunnysProjectPlan
+    url: /chaz6chez/2022/03/07/WorkbunnysProjectPlan.html
     desc: 基于Golang开发的轻量级高性能任务调度服务
-    new_tab: true
     highlight: Plan
 
 # exclude my node related stuff
