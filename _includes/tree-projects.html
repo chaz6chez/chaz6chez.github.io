@@ -7,7 +7,9 @@
     <article role="article" class="post-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
         <div class="content">
             <a title="{{project.desc}}}" target="_blank" href="{{ project.url }}">
-                <h2 class="post-title" itemprop="name">> {{ project.title | replace: ' ','-'}} [{{ project.desc }}]</h2>
+                <h2 class="post-title" itemprop="name">> {{ project.title | replace: ' ','-'}} [{{ project.desc }}]
+                    <mark style="background-color: darkorange;color: yellow"> Plan </mark>
+                </h2>
             </a>
         </div>
     </article>
