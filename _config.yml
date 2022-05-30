@@ -98,9 +98,9 @@ projects:
     url: https://github.com/chaz6chez/structure
     desc: 基于PHP反射的数据验证器
 
-  - title: casual/database
-    url: https://github.com/chaz6chez/casual-database
-    desc: PHP常驻内存开发的MySQL连接件
+  - title: workbunny/event-loop
+    url: https://github.com/workbunny/event-loop
+    desc: 基于PHP开发的轻量级高性能事件循环库
 
   - title: workbunny/nacos
     url: https://github.com/workbunny/webman-nacos
@@ -109,6 +109,10 @@ projects:
   - title: walkor/rabbitmq
     url: https://github.com/walkor/rabbitmq
     desc: Workerman官方RabbitMQ异步客户端组件
+
+  - title: casual/database
+    url: https://github.com/chaz6chez/casual-database
+    desc: PHP常驻内存开发的MySQL连接件
 
   - title: Workbunny
     url: /chaz6chez/2022/03/07/WorkbunnysProjectPlan.html
