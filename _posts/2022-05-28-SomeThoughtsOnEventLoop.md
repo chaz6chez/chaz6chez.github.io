@@ -921,7 +921,7 @@ Event::defer(
 
 这个swoole/openswoole我目前还没有测试完，之后测试了有其他心得的话，会继续更新，毕竟如果能够使用一些协程，也是比较快乐的事儿，继续折腾！
 
-这里继续提一句，我的 **[workbunny/event-loop](https://github.com/workbunny/event-loop) -1.0.0 **是生产可用的，做好了测试覆盖的；
+这里继续提一句，我的 **[workbunny/event-loop](https://github.com/workbunny/event-loop) -1.0.0** 是生产可用的，做好了测试覆盖的；
 随后 **1.x** 我会加入 **openswoole**，当然我得先把它测试通过才可以；
 
 **欢迎star！PR！issue！**
