@@ -796,9 +796,9 @@ function(resource $stream){}
 function(EvIo $stream){}
 ```
 
-但这个其实还好，我可以通过``` $stream->fd ```获取对应的resource流，但是没想到这里却又有一个坑；我在注册的时候通过``` (int)$stream ```获得的resource id，并且将其id和resource以KV的形式保存在_readFds属性中``` $this->_readFds[$key] = $stream; ``` ；但没有想到，回调传入的EvIo对象中通过fd属性获取的resource id竟然和我注册时候的id不对等，而且每次都不对等，相当于每一次都是新的；这时候我就懵逼了；
+但这个其实还好，我可以通过 **$stream->fd** 获取对应的resource流，但是没想到这里却又有一个坑；我在注册的时候通过 **(int)$stream** 获得的resource id，并且将其id和resource以KV的形式保存在_readFds属性中``` $this->_readFds[$key] = $stream; ``` ；但没有想到，回调传入的EvIo对象中通过fd属性获取的resource id竟然和我注册时候的id不对等，而且每次都不对等，相当于每一次都是新的；这时候我就懵逼了；
 
-但还好，我发现每次传入的EvIo对象是同一个，我索性以EvIo对象做判断，通过**spl_object_hash()**获取EvIo对象的id，将注册代码改为了如下：
+但还好，我发现每次传入的EvIo对象是同一个，我索性以EvIo对象做判断，通过 **spl_object_hash()** 获取EvIo对象的id，将注册代码改为了如下：
 
 ```php
 
@@ -851,12 +851,13 @@ WriteStream同理，这里就不多说了。
 ## Swoole/OpenSwoole个人觉得还是不稳当，最好有阅读C源代码的能力
 
 Swoole在测试的时候报了挺多错误的，感觉和PHPunit有一些冲突，最明显的是如下这个错误：
+
 ```php
 PHPUnit\Framework\Exception: PHP Fatal error:  Uncaught Exception: Serialization of 'Closure' is not allowed
 ```
-即便使用PHPunit的 @backupStaticAttributes 和 @backupGlobals 依然存在；我没有去看源码，个人理解可能是Swoole底层利用了一些全局的静态导致了这个，感兴趣的可以去看看源码。
+即便使用PHPunit的 **@backupStaticAttributes** 和 **@backupGlobals** 依然存在；我没有去看源码，个人理解可能是Swoole底层利用了一些全局的静态导致了这个，感兴趣的可以去看看源码。
 
-OpenSwoole反而比Swoole好像要少一些，但也可能是我是用方式不同导致的，但也有一些比较令我意外的地方；在OpenSwoole的event-loop中，我利用了Event::defer嵌套Timer::tick做了一些工作，实现了无延迟单次定时器、无延迟循环定时器等：
+OpenSwoole反而比Swoole好像要少一些，但也可能是我是用方式不同导致的，但也有一些比较令我意外的地方；在OpenSwoole的event-loop中，我利用了 **Event::defer** 嵌套 **Timer::tick** 做了一些工作，实现了无延迟单次定时器、无延迟循环定时器等：
 
 ```php
 Event::defer(
@@ -912,7 +913,7 @@ Event::defer(
     }
 ```
 
-如果上述代码我注释掉``` $this->loop->addTimer($this->tickTimeout,0.0, function (){}); ```这行代码，结果便达不到预期；如果使用``` $this->loop->addTimer(0.0,0.0, function (){}); ```也同样达不到预期，这里``` $this->loop->addTimer(0.0,0.0, function (){}); ```可以等同看作是 **Event::defer**，也就是说必须有一个基于 **Timer::tick** 的方法挂在最后，这样的结果才符合预期；
+如果上述代码我注释掉 **$this->loop->addTimer($this->tickTimeout,0.0, function (){});** 这行代码，结果便达不到预期；如果使用 **$this->loop->addTimer(0.0,0.0, function (){});** 也同样达不到预期，这里 **$this->loop->addTimer(0.0,0.0, function (){});** 可以等同看作是 **Event::defer**，也就是说必须有一个基于 **Timer::tick** 的方法挂在最后，这样的结果才符合预期；
 
 我的猜测是在Swoole/OpenSwoole环境下，信号的发送和接收是会被转为异步操作，交给了swoole的辅助线程的缘故，因为swoole中还有一条辅助线程用来调度协程，也会包含一个loop，因为这个信号被转为了异步，也就是说当我的loop循环到第二圈的时候，信号还并没有通知到我这里，我因为使用了defer，在第二个循环中就将当前循环**destroy()**了，自然达不到预期，但当我使用了一个**Timer::tick**将我的loop挂起了不止一圈，那么这时候可能就收到了异步的信号通知，那么自然也就触发了我的回调，自然也就符合了预期。
 
