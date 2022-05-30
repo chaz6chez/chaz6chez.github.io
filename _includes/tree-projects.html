@@ -8,7 +8,9 @@
         <div class="content">
             <a title="{{project.desc}}}" target="_blank" href="{{ project.url }}">
                 <h2 class="post-title" itemprop="name">> {{ project.title | replace: ' ','-'}} [{{ project.desc }}]
+                    {% if project.highlight %}
                     <mark style="background-color: darkorange;color: yellow"> Plan </mark>
+                    {% endif %}
                 </h2>
             </a>
         </div>
